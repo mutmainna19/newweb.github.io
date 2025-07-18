@@ -24,4 +24,47 @@
     <button type="button" onclick="lanjutKeHasil()">Lanjutkan</button>
   </form>
 </body>
+<script>
+  function hitungTotal() {
+    const harga = {
+      mie: 12000,
+      es: 8000,
+      pangsit: 10000,
+      rambutan: 15000,
+      lumpia: 13000,
+      keju: 14000
+    };
+
+    const jumlah = {
+      mie: parseInt(document.getElementById('mie').value) || 0,
+      es: parseInt(document.getElementById('es').value) || 0,
+      pangsit: parseInt(document.getElementById('pangsit').value) || 0,
+      rambutan: parseInt(document.getElementById('rambutan').value) || 0,
+      lumpia: parseInt(document.getElementById('lumpia').value) || 0,
+      keju: parseInt(document.getElementById('keju').value) || 0
+    };
+
+    const total =
+      (jumlah.mie * harga.mie) +
+      (jumlah.es * harga.es) +
+      (jumlah.pangsit * harga.pangsit) +
+      (jumlah.rambutan * harga.rambutan) +
+      (jumlah.lumpia * harga.lumpia) +
+      (jumlah.keju * harga.keju);
+
+    document.getElementById('totalHarga').innerText = `Total Harga: Rp${total.toLocaleString('id-ID')}`;
+  }
+
+  function lanjutKeHasil() {
+    const nama = document.getElementById('nama').value;
+    if (!nama) {
+      alert("Silakan isi nama pemesan.");
+      return;
+    }
+
+    hitungTotal();
+    alert("Terima kasih, " + nama + "! Pesanan Anda sedang diproses.");
+  }
+</script>
+
 </html>
