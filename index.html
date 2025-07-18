@@ -1,145 +1,54 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Daftar Nama</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-image:url(backround\ 1.jpg);
-      background-repeat: no-repeat;
-      background-size: cover;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    h2 {
-      color:black;
-      margin-bottom: 20px;
-    }
-
-    .form-container {
-      background-color: #ffffff;
-      padding: 20px 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 30px;
-    }
-
-    input[type="text"] {
-      padding: 10px;
-      width: 250px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-
-    button {
-      padding: 10px 20px;
-      background-color: pink;
-      color: black;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color:pink;
-      color: black;
-    }
-
-    table {
-      width: 100%;
-      max-width: 500px;
-      border-collapse: collapse;
-      background-color: #ffffff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    th, td {
-      padding: 12px 16px;
-      border-bottom: 1px solid #ddd;
-      text-align: left;
-    }
-
-    th {
-      background-color: pink;
-      color: black;
-    }
-
-    tr:last-child td {
-      border-bottom: none;
-    }
-
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-  </style>
+    
+  <meta charset="UTF-8">
+  <title>Menu Makanan</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Masukkan Nama Pendaftar</h2>
-  <div class="form-container">
-    <input type="text" id="namaInput" placeholder="Tulis nama di sini">
-    <button id="tambahBtn">Tambah ke Daftar</button>
-  </div>
+  <h1>Menu Mie Gacoan</h1>
+  <ul>
+    <li>Mie Gacoan - Rp12.000</li>
+    <li>Es Teh - Rp8.000</li>
+    <li>Pangsit Goreng - Rp10.000</li>
+    <li>udang rambutan - Rp15.000</li>
+    <li>lumpia udang - 13.000</li>
+    <li>udang keju - 14.000</li>
+    <h1>Menu Mie Gacoan</h1>
 
-  <table id="tabelNama">
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Nama</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Baris nama-nama akan ditambahkan di sini -->
-    </tbody>
-  </table>
+<div class="menu-item">
+  <img src="https://statik.tempo.co/data/2025/03/19/id_1385748/1385748_720.jpg" alt="Mie Gacoan" />
+  <p>Mie Gacoan - Rp12.000</p>
+</div>
 
-  <script>
-    const namaList = [];
-    const input = document.getElementById('namaInput');
-    const tombol = document.getElementById('tambahBtn');
-    const tabelBody = document.querySelector('#tabelNama tbody');
+<div class="menu-item">
+  <img src="https://asset.kompas.com/crops/-EW4dZIFD3U055K4qtHqSgUg_hM=/92x67:892x600/1200x800/data/photo/2023/08/23/64e59deb79bfb.jpg" alt="Es Teh" />
+  <p>Es teh - Rp8.000</p>
+</div>
 
-    tombol.addEventListener('click', function () {
-      const nama = input.value.trim();
-      if (nama !== '') {
-        namaList.push(nama);
-        tampilkanTabel();
-        input.value = '';
-        input.focus();
-      }
-    });
+<div class="menu-item">
+  <img src="https://o-cdf.oramiland.com/unsafe/cnc-magazine.oramiland.com/parenting/original_images/Pangsit_Goreng.jpg" alt="Pangsit Goreng" />
+  <p>Pangsit Goreng - Rp10.000</p>
+</div>
 
-    function tampilkanTabel() {
-      // Kosongkan isi tabel sebelum diisi ulang
-      tabelBody.innerHTML = '';
+<div class="menu-item">
+  <img src="https://image.idntimes.com/post/20211002/lilydimsum-1633161024433903-8e7155f72deafc10a9b2758025e2fdb1.jpg" alt="Udang Rambutan" />
+  <p>Udang Rambutan - Rp15.000</p>
+</div>
 
-      // Isi ulang tabel dari array
-      namaList.forEach(function (nama, index) {
-        const row = document.createElement('tr');
-        const cellNo = document.createElement('td');
-        const cellNama = document.createElement('td');
+<div class="menu-item">
+  <img src="https://image.idntimes.com/post/20230111/vi-lumpia-udang-025f2a6a946c828542c3fe842a934892.jpg" alt="Lumpia Udang" />
+  <p>Lumpia Udang - Rp13.000</p>
+</div>
 
-        cellNo.textContent = index + 1;
-        cellNama.textContent = nama;
+<div class="menu-item">
+  <img src="https://media.zcreators.id/crop/0x0:0x0/750x500/photo/indizone/2022/11/29/3eseVx5/ini-resep-udang-keju-ala-mie-gacoan-yang-bisa-kamu-bikin-sendiri-di-rumah37.jpg" alt="Udang Keju" />
+  <p>Udang Keju - Rp14.000</p>
+</div>
 
-        row.appendChild(cellNo);
-        row.appendChild(cellNama);
-        tabelBody.appendChild(row);
-      });
-    }
-  </script>
+
+  </ul>
+  <a href="pesan.html">Pesan Sekarang</a>
 </body>
 </html>

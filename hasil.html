@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pesanan Anda</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Pesanan Anda Telah Diproses!</h1>
+  <p id="ucapan"></p>
+  <p id="total"></p>
+
+  <script>
+    const nama = localStorage.getItem("namaPemesan") || "Pelanggan";
+    const total = localStorage.getItem("totalHarga") || "0";
+
+    document.getElementById("ucapan").innerText = `Terima kasih, ${nama}, sudah memesan 😊Pesananan anda segera di proses`;
+    document.getElementById("total").innerText = "Total Pembayaran: Rp" + parseInt(total).toLocaleString("id-ID");
+  </script>
+
+  <a href="index.html">Kembali ke Menu</a>
+</body>
+</html>
