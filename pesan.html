@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pesan Makanan</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <h1>Form Pemesanan</h1>
+  <form id="formPesanan">
+    <label>Nama Pemesan: <input type="text" id="nama" required></label><br><br>
+
+    <label>Mie Gacoan (Rp12.000): <input type="number" id="mie" value="0" min="0"></label><br>
+    <label>Es Genderuwo (Rp8.000): <input type="number" id="es" value="0" min="0"></label><br>
+    <label>Pangsit Goreng (Rp10.000): <input type="number" id="pangsit" value="0" min="0"></label><br>
+    <label>Udang Rambutan (Rp15.000): <input type="number" id="rambutan" value="0" min="0"></label><br>
+    <label>Lumpia Udang (Rp13.000): <input type="number" id="lumpia" value="0" min="0"></label><br>
+    <label>Udang Keju (Rp14.000): <input type="number" id="keju" value="0" min="0"></label><br><br>
+
+    <button type="button" onclick="hitungTotal()">Hitung Total</button>
+    <p id="totalHarga"></p>
+
+    <button type="button" onclick="lanjutKeHasil()">Lanjutkan</button>
+  </form>
+</body>
+<script>
+  function hitungTotal() {
+    const harga = {
+      mie: 12000,
+      es: 8000,
+      pangsit: 10000,
+      rambutan: 15000,
+      lumpia: 13000,
+      keju: 14000
+    };
+
+    const jumlah = {
+      mie: parseInt(document.getElementById('mie').value) || 0,
+      es: parseInt(document.getElementById('es').value) || 0,
+      pangsit: parseInt(document.getElementById('pangsit').value) || 0,
+      rambutan: parseInt(document.getElementById('rambutan').value) || 0,
+      lumpia: parseInt(document.getElementById('lumpia').value) || 0,
+      keju: parseInt(document.getElementById('keju').value) || 0
+    };
+
+    const total =
+      (jumlah.mie * harga.mie) +
+      (jumlah.es * harga.es) +
+      (jumlah.pangsit * harga.pangsit) +
+      (jumlah.rambutan * harga.rambutan) +
+      (jumlah.lumpia * harga.lumpia) +
+      (jumlah.keju * harga.keju);
+
+    document.getElementById('totalHarga').innerText = `Total Harga: Rp${total.toLocaleString('id-ID')}`;
+  }
+
+  function lanjutKeHasil() {
+    const nama = document.getElementById('nama').value;
+    if (!nama) {
+      alert("Silakan isi nama pemesan.");
+      return;
+    }
+
+    hitungTotal();
+    alert("Terima kasih, " + nama + "! Pesanan Anda sedang diproses.");
+  }
+</script>
+
+</html>
